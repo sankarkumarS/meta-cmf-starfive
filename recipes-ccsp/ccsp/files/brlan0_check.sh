@@ -22,6 +22,30 @@ sleep 30
 
 . /etc/device.properties
 
+brctl addif brlan0 eth1
+ifconfig wlan0  up
+ifconfig wlan1 up
+brctl addif brlan0 wlan0
+brctl addif brlan0 wlan1
+ifconfig brlan0 10.0.0.1 netmask 255.255.255.0 up
+/sbin/udhcpc -i erouter0 -p /tmp/udhcpc.erouter0.pid -s /etc/udhcpc.script
+ 
+# Enable IP forwarding
+echo 1 > /proc/sys/net/ipv4/ip_forward
+ 
+# Set up NAT (masquerading) on the outgoing interface (erouter0)
+iptables -t nat -A POSTROUTING -o erouter0 -j MASQUERADE
+ 
+# Allow forwarding between brlan0 (internal network) and erouter0 (internet-facing)
+iptables -A FORWARD -i brlan0 -o erouter0 -j ACCEPT
+iptables -A FORWARD -i erouter0 -o brlan0 -j ACCEPT
+ 
+# Save iptables rules (for persistence across reboots)
+iptables-save > /etc/iptables/rules.v4   # For Debian/Ubuntu-based systems
+ 
+systemct restart lighttpd
+systemct status lighttpd
+
 while [ 1 ]
 do
 LanMode=`dmcli eRT getv Device.X_CISCO_COM_DeviceControl.LanManagementEntry.1.LanMode | grep value | cut -d ':' -f3 | cut -d ' ' -f2 | tr -d '\n'`
