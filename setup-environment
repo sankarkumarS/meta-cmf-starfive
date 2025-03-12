@@ -117,6 +117,85 @@ LOCAL_CONF="conf/local.conf"
 # Check if the file exists
 if [ -f "$LOCAL_CONF" ]; then
     echo "$LOCAL_CONF exists."
+    if [ $(grep conf/local.conf -c -e "TARGET_ARCH = \"riscv64\"") -eq 0 ]; then
+        echo "TARGET_ARCH = \"riscv64\"" >> conf/local.conf
+    fi
+    if [ $(grep conf/local.conf -c -e "TUNE_FEATURES = \"riscv64\"") -eq 0 ]; then
+        echo "TUNE_FEATURES = \"riscv64\"" >> conf/local.conf
+    fi
+    if [ $(grep conf/local.conf -c -e "DEPENDS_remove = \"breakpad-wrapper\"") -eq 0 ]; then
+        echo "DEPENDS_remove = \"breakpad-wrapper\"" >> conf/local.conf
+    fi
+    if [ $(grep conf/local.conf -c -e "LDFLAGS_remove = \"-lbreakpadwrapper\"") -eq 0 ]; then
+        echo "LDFLAGS_remove = \"-lbreakpadwrapper\"" >> conf/local.conf
+    fi
+    if [ $(grep conf/local.conf -c -e "CFLAGS_remove = \"-lbreakpadwrapper\"") -eq 0 ]; then
+        echo "CFLAGS_remove = \"-lbreakpadwrapper\"" >> conf/local.conf
+    fi
+    if [ $(grep conf/local.conf -c -e "PREFERRED_PROVIDER_virtual/kernel = \"linux-starfive-dev\"") -eq 0 ]; then
+        echo "PREFERRED_PROVIDER_virtual/kernel = \"linux-starfive-dev\"" >> conf/local.conf
+    fi
+    if [ $(grep conf/local.conf -c -e "CFLAGS_append = \" -UINCLUDE_BREAKPAD\"") -eq 0 ]; then
+        echo "CFLAGS_append = \" -UINCLUDE_BREAKPAD\"" >> conf/local.conf
+    fi
+    if [ $(grep conf/local.conf -c -e "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"rdk-wifi-hal\"") -eq 0 ]; then
+        echo "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"rdk-wifi-hal\"" >> conf/local.conf
+    fi
+    if [ $(grep conf/local.conf -c -e "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"xupnp\"") -eq 0 ]; then
+        echo "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"xupnp\"" >> conf/local.conf
+    fi
+    if [ $(grep conf/local.conf -c -e "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"rdk-fwupgrade-manager\"") -eq 0 ]; then
+        echo "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"rdk-fwupgrade-manager\"" >> conf/local.conf
+    fi
+    if [ $(grep conf/local.conf -c -e "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"breakpad-wrapper\"") -eq 0 ]; then
+        echo "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"breakpad-wrapper\"" >> conf/local.conf
+    fi
+    if [ $(grep conf/local.conf -c -e "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"ccsp-adv-security\"") -eq 0 ]; then
+        echo "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"ccsp-adv-security\"" >> conf/local.conf
+    fi
+    if [ $(grep conf/local.conf -c -e "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"ccsp-one-wifi\"") -eq 0 ]; then
+        echo "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"ccsp-one-wifi\"" >> conf/local.conf
+    fi
+    if [ $(grep conf/local.conf -c -e "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"start-parodus\"") -eq 0 ]; then
+        echo "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"start-parodus\"" >> conf/local.conf
+    fi
+    if [ $(grep conf/local.conf -c -e "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"rdk-ledmanager\"") -eq 0 ]; then
+        echo "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"rdk-ledmanager\"" >> conf/local.conf
+    fi
+    if [ $(grep conf/local.conf -c -e "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"jst\"") -eq 0 ]; then
+        echo "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"jst\"" >> conf/local.conf
+    fi
+    if [ $(grep conf/local.conf -c -e "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"parodus\"") -eq 0 ]; then
+        echo "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"parodus\"" >> conf/local.conf
+    fi
+    if [ $(grep conf/local.conf -c -e "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"harvester\"") -eq 0 ]; then
+        echo "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"harvester\"" >> conf/local.conf
+    fi
+    if [ $(grep conf/local.conf -c -e "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"parodus2ccsp\"") -eq 0 ]; then
+        echo "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"parodus2ccsp\"" >> conf/local.conf
+    fi
+    if [ $(grep conf/local.conf -c -e "DEPENDS_remove = \"breakpad-native\"") -eq 0 ]; then
+        echo "DEPENDS_remove = \"breakpad-native\"" >> conf/local.conf
+    fi
+    if [ $(grep conf/local.conf -c -e "DEPENDS_remove = \"breakpad\"") -eq 0 ]; then
+        echo "DEPENDS_remove = \"breakpad\"" >> conf/local.conf
+    fi
+    if [ $(grep conf/local.conf -c -e "MACHINE_IMAGE_NAME = \"rdkb-generic-broadband-image\"") -eq 0 ]; then
+        echo "MACHINE_IMAGE_NAME = \"rdkb-generic-broadband-image\"" >> conf/local.conf
+    fi
+    if [ $(grep conf/local.conf -c -e "DISTRO_FEATURES_append = \"systemd\"") -eq 0 ]; then
+        echo "DISTRO_FEATURES_append = \"systemd\"" >> conf/local.conf
+    fi
+    if [ $(grep conf/local.conf -c -e "VIRTUAL-RUNTIME_init_manager = \"systemd\"") -eq 0 ]; then
+        echo "VIRTUAL-RUNTIME_init_manager = \"systemd\"" >> conf/local.conf
+    fi
+    if [ $(grep conf/local.conf -c -e "RDEPENDS:\${PN}_remove = \"nativesdk-qemu\"") -eq 0 ]; then
+        echo "RDEPENDS:\${PN}_remove = \"nativesdk-qemu\"" >> conf/local.conf
+    fi
+    if [ $(grep conf/local.conf -c -e "RDEPENDS:\${PN}_remove = \"virglrenderer-native\"") -eq 0 ]; then
+        echo "RDEPENDS:\${PN}_remove = \"virglrenderer-native\"" >> conf/local.conf
+    fi
+    
 
     # Use sed to modify the value of a variable (e.g., set MACHINE to starfive-starfive-jh7110)
 #    sed -i 's/^MACHINE=star*.*/MACHINE="starfive-starfive-jh7110"/' "$LOCAL_CONF"
