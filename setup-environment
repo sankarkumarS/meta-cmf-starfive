@@ -201,9 +201,6 @@ if [ -f "$LOCAL_CONF" ]; then
 #    sed -i 's/^MACHINE=star*.*/MACHINE="starfive-starfive-jh7110"/' "$LOCAL_CONF"
 #sed -i 's/starfive-starfive-jh7110-rdk-broadband/starfive-visionfive2-jh7110/' conf/local.conf
 
-    # Confirm the change
-    echo "Updated MACHINE in $LOCAL_CONF to starfive-starfive-jh7110"
-
 else
     # If the file does not exist, print an error message
     echo "$LOCAL_CONF does not exist. Please check the file path."
