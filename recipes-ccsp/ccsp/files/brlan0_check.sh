@@ -22,6 +22,8 @@ sleep 30
 
 . /etc/device.properties
 
+ifconfig eth1 up
+brctl addbr brlan0
 brctl addif brlan0 eth1
 ifconfig wlan0  up
 ifconfig wlan1 up
