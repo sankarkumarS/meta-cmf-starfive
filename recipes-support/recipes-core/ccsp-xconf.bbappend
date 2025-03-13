@@ -1,0 +1,1 @@
+CFLAGS_remove = "-DINCLUDE_BREAKPAD"
