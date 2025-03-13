@@ -43,8 +43,8 @@ iptables -A FORWARD -i erouter0 -o brlan0 -j ACCEPT
 # Save iptables rules (for persistence across reboots)
 iptables-save > /etc/iptables/rules.v4   # For Debian/Ubuntu-based systems
  
-systemct restart lighttpd
-systemct status lighttpd
+systemctl restart lighttpd
+systemctl status lighttpd
 
 while [ 1 ]
 do
