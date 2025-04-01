@@ -10,6 +10,7 @@ CFLAGS_remove_dunfell = " -Wno-mismatched-dealloc -Wno-enum-conversion "
 CFLAGS_append_aarch64 = " -Wno-error "
 LDFLAGS_remove = "-ltelemetry_msgsender"
 DEPENDS_remove = "telemetry"
+CFLAGS_remove = "-Werror"
 
 
 SRC_URI += " \

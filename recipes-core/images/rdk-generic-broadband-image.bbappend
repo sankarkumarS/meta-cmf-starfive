@@ -63,12 +63,10 @@ PREFERRED_PROVIDER_virtual/kernel = "linux-starfive-dev"
 CFLAGS_append = " -UINCLUDE_BREAKPAD"
 
 
-RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = "rdk-wifi-hal"
 RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = "xupnp"
 RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = "rdk-fwupgrade-manager"
 RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = "breakpad-wrapper"
 RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = "ccsp-adv-security"
-RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = "ccsp-one-wifi"
 RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = "start-parodus"
 RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = "rdk-ledmanager"
 RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = "jst"

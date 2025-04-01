@@ -1,68 +1,26 @@
-Index: git/source/dml/wifi_ssp/ssp_main.c
-===================================================================
---- git.orig/source/dml/wifi_ssp/ssp_main.c
-+++ git/source/dml/wifi_ssp/ssp_main.c
-@@ -44,7 +44,7 @@
- #include "ccsp_dm_api.h"
- #include "ccsp_WifiLog_wrapper.h"
- #include "syscfg/syscfg.h"
--#include "telemetry_busmessage_sender.h"
-+//#include "telemetry_busmessage_sender.h"
- #include "secure_wrapper.h"
- 
- #if defined (FEATURE_SUPPORT_WEBCONFIG)
-@@ -605,7 +605,7 @@ wifi_util_dbg_print(WIFI_MGR,"%s:%d: RDK
+diff --git a/source/dml/wifi_ssp/ssp_main.c b/source/dml/wifi_ssp/ssp_main.c
+index 9e0c808b..80ff2fbc 100644
+--- a/source/dml/wifi_ssp/ssp_main.c
++++ b/source/dml/wifi_ssp/ssp_main.c
+@@ -605,7 +605,7 @@ wifi_util_dbg_print(WIFI_MGR,"%s:%d: RDK_LOGGER_INIT done!\n", __func__, __LINE_
  
  #endif
    
 -    t2_init("ccsp-wifi-agent");
-+    //t2_init("ccsp-wifi-agent");
++   // t2_init("ccsp-wifi-agent");
    
      /* Default handling of SIGCHLD signals */
      if (signal(SIGCHLD, SIG_DFL) == SIG_ERR)
-Index: git/source/stubs/wifi_stubs.c
-===================================================================
---- git.orig/source/stubs/wifi_stubs.c
-+++ git/source/stubs/wifi_stubs.c
-@@ -25,11 +25,12 @@
- #include <string.h>
- #include "wifi_hal.h"
+diff --git a/source/stubs/wifi_stubs.c b/source/stubs/wifi_stubs.c
+index a489538f..77de99ef 100644
+--- a/source/stubs/wifi_stubs.c
++++ b/source/stubs/wifi_stubs.c
+@@ -84,7 +84,6 @@ static int strcpy_func(char *dst, size_t max, const char *src)
  
--#ifdef ONEWIFI_RDKB_APP_SUPPORT
-+//#ifdef ONEWIFI_RDKB_APP_SUPPORT
-+#ifdef 0
- #include "safec_lib_common.h"
- 
--extern int t2_event_d(char *marker, int value);
--extern int t2_event_s(char *marker, char *buff);
-+int t2_event_d(char *marker, int value);
-+int t2_event_s(char *marker, char *buff);
- extern int v_secure_system(const char *command);
- extern bool drop_root();
- extern void gain_root_privilege();
-Index: git/source/core/wifi_ctrl.c
-===================================================================
---- git.orig/source/core/wifi_ctrl.c
-+++ git/source/core/wifi_ctrl.c
-@@ -21,7 +21,7 @@
- #include <stdbool.h>
- #include "wifi_stubs.h"
- #include "wifi_hal.h"
--#include "wifi_hal_rdk_framework.h"
-+//#include "wifi_hal_rdk_framework.h"
- #include "wifi_ctrl.h"
- #include "wifi_mgr.h"
- #include "wifi_util.h"
-Index: git/source/core/wifi_ctrl_queue_handlers.c
-===================================================================
---- git.orig/source/core/wifi_ctrl_queue_handlers.c
-+++ git/source/core/wifi_ctrl_queue_handlers.c
-@@ -28,7 +28,7 @@
- #include "scheduler.h"
- #include <unistd.h>
- #include <pthread.h>
--#include "wifi_hal_rdk_framework.h"
-+//#include "wifi_hal_rdk_framework.h"
- #include "wifi_passpoint.h"
- #include "wifi_stubs.h"
- 
+ wifi_stubs_descriptor_t stubs_desc = {
+     t2_event_d,
+-    t2_event_s,
+     v_secure_system,
+     drop_root,
+     gain_root_privilege,
+

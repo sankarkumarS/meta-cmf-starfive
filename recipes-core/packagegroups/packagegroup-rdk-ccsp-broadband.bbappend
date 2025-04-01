@@ -1,5 +1,6 @@
 RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = "ccsp-moca-ccsp"
 RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = "sys-resource"
+RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = " rdk-wifi-hal"
 
 RDEPENDS_packagegroup-rdk-ccsp-broadband_append = "\
     rdk-logger \
@@ -7,6 +8,7 @@ RDEPENDS_packagegroup-rdk-ccsp-broadband_append = "\
     notify-comp \
     start-parodus \
     ${@bb.utils.contains('DISTRO_FEATURES', 'CPUPROCANALYZER_BROADBAND', 'cpuprocanalyzer', ' ', d)} \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'OneWifi', 'rdk-wifi-hal', '' ,d)} \
     ${@bb.utils.contains('DISTRO_FEATURES', 'rdkb_cellular_manager_mm', 'rdk-cellularmanager-mm', ' ', d)} \
     ${@bb.utils.contains('DISTRO_FEATURES', 'rdk_ledmanager', 'rdk-ledmanager', ' ', d)} \
     \

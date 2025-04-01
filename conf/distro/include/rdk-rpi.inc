@@ -203,3 +203,4 @@ SESSIONMGR_WS_RPC_ENABLE = "1"
 #REFPLTB-2784 : easymesh controller arch only supports with wifiagent
 MACHINEOVERRIDES_append =. "${@bb.utils.contains('DISTRO_FEATURES', 'OneWifi', ':onewifi', '' ,d)}"
 #DISTRO_FEATURES_remove_onewifi = " easymesh-controller"
+PREFERRED_PROVIDER_hal-wifi_onewifi = "hal-wifi-generic"

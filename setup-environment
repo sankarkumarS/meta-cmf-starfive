@@ -138,9 +138,6 @@ if [ -f "$LOCAL_CONF" ]; then
     if [ $(grep conf/local.conf -c -e "CFLAGS_append = \" -UINCLUDE_BREAKPAD\"") -eq 0 ]; then
         echo "CFLAGS_append = \" -UINCLUDE_BREAKPAD\"" >> conf/local.conf
     fi
-    if [ $(grep conf/local.conf -c -e "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"rdk-wifi-hal\"") -eq 0 ]; then
-        echo "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"rdk-wifi-hal\"" >> conf/local.conf
-    fi
     if [ $(grep conf/local.conf -c -e "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"xupnp\"") -eq 0 ]; then
         echo "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"xupnp\"" >> conf/local.conf
     fi
@@ -152,9 +149,6 @@ if [ -f "$LOCAL_CONF" ]; then
     fi
     if [ $(grep conf/local.conf -c -e "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"ccsp-adv-security\"") -eq 0 ]; then
         echo "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"ccsp-adv-security\"" >> conf/local.conf
-    fi
-    if [ $(grep conf/local.conf -c -e "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"ccsp-one-wifi\"") -eq 0 ]; then
-        echo "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"ccsp-one-wifi\"" >> conf/local.conf
     fi
     if [ $(grep conf/local.conf -c -e "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"start-parodus\"") -eq 0 ]; then
         echo "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"start-parodus\"" >> conf/local.conf
