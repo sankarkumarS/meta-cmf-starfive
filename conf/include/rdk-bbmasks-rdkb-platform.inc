@@ -166,7 +166,6 @@ BBMASK .= "|openembedded-core/meta/recipes-graphics/virglrenderer/virglrenderer_
 BBMASK .= "|openembedded-core/meta/recipes-graphics/mesa/mesa_22.0.3.bb"
 BBMASK .= "|openembedded-core/meta/recipes-core/images/core-image-minimal-initramfs.bb"
 BBMASK .= "|meta-rdk-broadband/recipes-ccsp/ccsp/start-parodus.bb"
-BBMASK .= "|meta-rdk-broadband/recipes-ccsp/ccsp/jst.bb"
 BBMASK .= "|meta-rdk-broadband/recipes-ccsp/ccsp/rdk-ledmanager.bb"
 BBMASK .= "|meta-openembedded/meta-oe/recipes-devtools/breakpad/breakpad_git.bb"
 BBMASK .= "|meta-rdk/recipes-common/breakpad_wrapper/breakpad-wrapper.bb"

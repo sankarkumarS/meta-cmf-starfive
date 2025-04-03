@@ -156,9 +156,6 @@ if [ -f "$LOCAL_CONF" ]; then
     if [ $(grep conf/local.conf -c -e "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"rdk-ledmanager\"") -eq 0 ]; then
         echo "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"rdk-ledmanager\"" >> conf/local.conf
     fi
-    if [ $(grep conf/local.conf -c -e "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"jst\"") -eq 0 ]; then
-        echo "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"jst\"" >> conf/local.conf
-    fi
     if [ $(grep conf/local.conf -c -e "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"parodus\"") -eq 0 ]; then
         echo "RDEPENDS_packagegroup-rdk-ccsp-broadband_remove = \"parodus\"" >> conf/local.conf
     fi
