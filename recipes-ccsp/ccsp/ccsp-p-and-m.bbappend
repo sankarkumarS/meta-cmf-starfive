@@ -10,8 +10,8 @@ CFLAGS_append = " -UINCLUDE_BREAKPAD"
 LDFLAGS_remove = " \
     -lmoca_mgnt \
     -ltelemetry_msgsender \
-    -ltime_conversion \
 "
+LDFLAGS_append = " -ltime_conversion"
 CFLAGS_remove = "-Werror"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
